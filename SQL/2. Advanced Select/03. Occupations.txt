@@ -1,0 +1,27 @@
+-- https://www.hackerrank.com/challenges/occupations/problem
+-- # Difficulty : Medium
+
+set @d=0, @a=0, @p=0, @s=0;
+
+select min(Doctor), min(Professor), min(Singer), min(Actor)
+from
+(
+select 
+ case when Occupation = 'Doctor' then (@d := @d + 1)
+           when Occupation = 'Actor' then (@a := @a + 1)
+           when Occupation = 'Professor' then (@p := @p + 1)
+           when Occupation = 'Singer' then (@s := @s + 1)
+           end as row_num
+, case when Occupation = 'Doctor' then Name end as Doctor
+, case when Occupation = 'Actor' then Name end as Actor
+, case when Occupation = 'Professor' then Name end as Professor
+, case when Occupation = 'Singer' then Name end as Singer
+
+from Occupations
+order by Name
+) as pivot_occupations
+
+group by row_num
+;
+       
+	
