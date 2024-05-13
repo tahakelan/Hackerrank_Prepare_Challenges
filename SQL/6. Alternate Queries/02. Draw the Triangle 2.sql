@@ -1,5 +1,5 @@
 -- https://www.hackerrank.com/challenges/draw-the-triangle-2/problem?isFullScreen=true
--- Difficulty: Medium
+-- Difficulty: Easy
 
 DELIMITER $$
 
