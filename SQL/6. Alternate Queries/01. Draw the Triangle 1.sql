@@ -1,3 +1,6 @@
+-- https://www.hackerrank.com/challenges/draw-the-triangle-1/problem?isFullScreen=true
+-- Difficulty: Medium
+
 -- Solution 1
 set @r:= 21;
 select repeat('* ', @r:= @r-1)
