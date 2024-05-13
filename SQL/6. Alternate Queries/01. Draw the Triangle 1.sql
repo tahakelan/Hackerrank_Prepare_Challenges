@@ -1,5 +1,5 @@
 -- https://www.hackerrank.com/challenges/draw-the-triangle-1/problem?isFullScreen=true
--- Difficulty: Medium
+-- Difficulty: Easy
 
 -- Solution 1
 set @r:= 21;
