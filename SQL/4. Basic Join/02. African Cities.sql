@@ -2,8 +2,8 @@
 -- # Difficulty : Easy
 
 select
-city.name
+  city.name
 from city
-inner join country on city.countrycode = country.code
+  inner join country on city.countrycode = country.code
 where country.continent = 'Africa'
 ;
