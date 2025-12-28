@@ -23,4 +23,29 @@ having challenges_created = (
                 group by challenges_created
                 having count(*) = 1)                                                   
 order by challenges_created desc, h.hacker_id
+
 ;
+
+
+-- Solution 2
+
+with challenges as (
+select 
+    h.hacker_id, h.name, count(c.challenge_id) as cnt
+from hackers h, challenges c 
+where h.hacker_id = c.hacker_id
+group by h.hacker_id, h.name
+)
+, challenges_count as (
+    select cnt, count(*) as challenges_cnt
+    from challenges
+    group by cnt
+)
+
+select * 
+from challenges
+where cnt not in (select cnt from challenges_count
+                where challenges_cnt >1 and 
+                cnt<(select max(cnt) from challenges))
+    
+ order by cnt desc, hacker_id
