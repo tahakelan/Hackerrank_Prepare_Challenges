@@ -29,5 +29,5 @@ from contests c
  
 group by c.contest_id, c.hacker_id, c.name
 having (total_submissions + total_accepted_submissions + total_views +  total_unique_views) > 0
-order by c.hacker_id
+order by c.contest_id
 ;
